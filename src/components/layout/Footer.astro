@@ -41,9 +41,8 @@ const {
         href={github}
         class="flex items-center justify-center gap-3 text-base font-normal italic max-sm:text-sm"
         aria-label="About the website development"
-        ><Icon name="code" aria-hidden="true" /> Developed by <strong
-          >{alias}</strong
-        >, with Astro</a
+        ><Icon name="code" aria-hidden="true" /> Developed by <strong>EFEELE</strong
+        >for GitHub Pages with Astro</a
       >
     </div>
     <div
@@ -57,6 +56,16 @@ const {
         label={`Send email to ${email}`}
       />
       <Social
+        link={linkedin}
+        iconName={linkedinIconName}
+        label={`Visit ${alias} on LinkedIn`}
+      />
+      <Social
+        link={github}
+        iconName={githubIconName}
+        label={`Visit ${alias} on GitHub`}
+      />
+      <Social
         link={instagram}
         iconName={instagramIconName}
         label={`Visit ${alias} on Instagram`}
@@ -65,16 +74,6 @@ const {
         link={youtube}
         iconName={youtubeIconName}
         label={`Visit ${alias} on YouTube`}
-      />
-      <Social
-        link={github}
-        iconName={githubIconName}
-        label={`Visit ${alias} on GitHub`}
-      />
-      <Social
-        link={linkedin}
-        iconName={linkedinIconName}
-        label={`Visit ${alias} on LinkedIn`}
       />
     </div>
   </nav>

@@ -1,6 +1,6 @@
 ---
 layout: /src/layouts/MarkdownAbout.astro
-title: "Cesar Asto Ore"
+title: "Cesar Stevens"
 description: "Web developer, technology enthusiast, and event organizer. From my beginnings in development to creating communities and impactful projects, here I share my journey, experiences, and learnings. 🚀☕"
 author: "Fernando Lopez"
 image:

@@ -15,8 +15,8 @@ const routes = ["/", "/portfolio", "/about-me"];
 const isActiveRoute = routes.includes(currentPath);
 
 const navItems = isActiveRoute
-  ? ["home", "experience", "projects", "about", "blog"]
-  : ["home", "blog", "about"]; // Change the items
+  ? ["home", "about", "projects", "blog"]
+  : ["home", "about", "projects", "blog"];
 ---
 
 <header
@@ -42,7 +42,6 @@ const navItems = isActiveRoute
         class="max-md:hidden flex items-center justify-center gap-5"
         role="group"
       >
-        <Social link={github} iconName={githubIconName} />
         <Social link={linkedin} iconName={linkedinIconName} />
       </div>
     </div>
