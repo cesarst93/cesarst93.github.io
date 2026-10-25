@@ -110,6 +110,61 @@ export const languages: Record<string, Language> = {
     name: "Python",
     iconName: "python",
   },
+  kali: {
+    name: "Kali Linux",
+    iconName: "kalilinux",
+  },
+  vscode: {
+    name: "Visual Studio Code",
+    iconName: "vscode",
+  },
+  ubuntu: {
+    name: "Ubuntu",
+    iconName: "ubuntu",
+  },
+  dotnet: {
+    name: ".NET",
+    iconName: "dotnet",
+  },
+  matlab: {
+    name: "MATLAB",
+    iconName: "matlab",
+  },
+  claude: {
+    name: "Claude",
+    iconName: "claude",
+  },
+  java: {
+    name: "Java",
+    className: "bg-white!",
+    iconName: "java",
+  },
+  sqlserver: {
+    name: "SQL Server",
+    iconName: "sqlserver",
+  },
+  proteus: {
+    name: "Proteus",
+    iconName: "proteus",
+  },
+  multisim: {
+    name: "NI Multisim",
+    iconName: "multisim",
+  },
+  quartus: {
+    name: "Intel Quartus Prime",
+    className: "bg-white!",
+    iconName: "intel",
+  },
+  mplab: {
+    name: "MPLAB",
+    iconName: "mplab",
+  },
+  tiaportal: {
+    name: "TIA Portal",
+    className: "bg-white!",
+    iconName: "siemens",
+  },
 };
 
 export const getLanguage = (lang: string): Language => {

@@ -1,36 +1,26 @@
 ---
-const allTools = [
-  "html",
-  "javascript",
-  "ts",
-  "angular",
-  "astro",
-  
-  "node",
-
-  "css",
-  "tailwind",
-  "sass",
-  "bootstrap",
-
-  "mongo",
-  "firebase",
-  "mysql",
-
-  "cloudflare",
-
-  "figma",
-  "vercel",
-  "netlify",
-  
-  "git",
-  "markdown",
-
-  "php",
-  "wordpress",
-];
-
 import Capsule from "../ui/Capsule.astro";
+import { getLanguage } from "../../utils/languages";
+
+// Always rendered in alphabetical order by display name
+const allTools = [
+  "kali",
+  "vscode",
+  "ubuntu",
+  "python",
+  "dotnet",
+  "matlab",
+  "claude",
+  "java",
+  "sqlserver",
+  "proteus",
+  "multisim",
+  "quartus",
+  "mplab",
+  "tiaportal",
+].sort((a, b) =>
+  getLanguage(a).name.localeCompare(getLanguage(b).name, "en", { sensitivity: "base" })
+);
 
 type ToolVariant = "default" | "center";
 
