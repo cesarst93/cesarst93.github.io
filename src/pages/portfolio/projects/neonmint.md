@@ -5,7 +5,7 @@ pubDate: 2025-04-05
 description: 'NeonMint is a modern, minimalist template crafted for developers and digital creatives.'
 languages: ["astro", "tailwind", "cloudflare", "javascript","vercel"]
 image:
-  url: "/images/projects/neonmint.webp"
+  url: "/images/projects/neonmint/cover.webp"
   alt: "Thumbnail of Astro arches."
 --- 
 

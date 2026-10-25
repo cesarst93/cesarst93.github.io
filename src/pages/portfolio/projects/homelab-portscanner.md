@@ -5,15 +5,15 @@ pubDate: 2026-09-06
 description: 'A cybersecurity home lab where I build a basic TCP port scanner in Python and test it from a Kali Linux attacker against an Ubuntu target running FTP, SSH and web services.'
 languages: ["kali", "python", "ubuntu", "vscode"]
 image:
-  url: "/images/projects/homelab-portscanner.png"
-  alt: "Network diagram: a Kali Linux attacker machine (10.0.0.101) and an Ubuntu target machine (10.0.0.102) connected through a layer 2 switch. The target exposes FTP on port 21, SSH on port 22 and web on ports 80 and 8080."
+  url: "/images/projects/homelab-portscanner/cover.png"
+  alt: "Home Lab: TCP Port Scanner"
 ---
 
 This first cybersecurity home lab consists of querying the state of connections to a target machine through TCP ports. It covers configuring the target machine so that it can be scanned by the attacker machine. Basic services such as web, SSH, and FTP will be exposed.
 
 ## Architecture
 
-![Network diagram of the home lab: Kali Linux attacker and Ubuntu target connected through a layer 2 switch](/images/projects/homelab-portscanner.png)
+![Architecture](/images/projects/homelab-portscanner/architecture.png)
 
 Both machines share the same layer 2 network:
 
@@ -62,6 +62,30 @@ Likewise, we check connectivity with the target machine using the `ping` command
 Before enabling the firewall, `nc -zv` reports ports 21, 22 and 80 as **open**, while ports 53, 631, 8080 and 9999 return **connection refused**: nothing is listening on them from the network side.
 
 After enabling the firewall, port 21 is still **open** and port 8080 is still **refused**, now because of the *reject* rule. Port 9999, however, changes to **connection timed out**, because the firewall silently drops the packets.
+
+### Python Script
+
+```python
+from socket import socket, AF_INET, SOCK_STREAM
+
+print("TCP Port Scanner.\nEnter the target IP address and the ports you want to scan (comma-separated).")
+target_ip = input("Target IP: ").strip()
+ports = input("Ports: ")
+port_list = [int(port.strip()) for port in ports.split(",")]
+print(f"\nScanning {target_ip}...\n")
+
+for port in port_list:
+    with socket(AF_INET, SOCK_STREAM) as s:
+        s.settimeout(5)
+        try:
+            s.connect((target_ip, port))
+            state = "open"
+        except ConnectionRefusedError:
+            state = "refused"
+        except TimeoutError:
+            state = "timeout"
+    print(f"Port {port}: {state}")
+```
 
 ## Results
 
