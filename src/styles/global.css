@@ -151,6 +151,19 @@ a.inline-block.leading-5.pl-12{
 .markdown strong{
 	@apply font-bold;
 }
+
+.markdown table {
+	@apply w-full mb-8 border-collapse font-montserrat text-xl max-md:text-lg text-blacktext dark:text-gray-200;
+}
+.markdown th {
+	@apply px-4 py-3 text-left font-bold dark:text-white text-blacktext border-b-2 border-mint-500;
+}
+.markdown td {
+	@apply px-4 py-3 border-b dark:border-zinc-700 border-neutral-200;
+}
+.markdown tbody tr {
+	@apply transition-colors hover:bg-mint-50 dark:hover:bg-mint-900/20;
+}
 .code-block-efe {
 	@apply  w-full rounded-lg h-auto overflow-hidden my-8 ;
 }
