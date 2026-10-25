@@ -1,7 +1,7 @@
 ---
 layout:  /src/layouts/ProjectLayout.astro
 title: 'Home Lab: TCP Port Scanner'
-pubDate: 2026-09-06
+pubDate: 2026-10-24
 description: 'A cybersecurity home lab where I build a basic TCP port scanner in Python and test it from a Kali Linux attacker against an Ubuntu target running FTP, SSH and web services.'
 languages: ["kali", "python", "ubuntu", "vscode"]
 image:
