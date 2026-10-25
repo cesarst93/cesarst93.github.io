@@ -6,7 +6,7 @@ description: 'A cybersecurity home lab where I build a basic TCP port scanner in
 languages: ["kali", "python", "ubuntu", "vscode"]
 image:
   url: "/images/projects/homelab-portscanner/cover.png"
-  alt: "Home Lab: TCP Port Scanner"
+  alt: "TCP Port Scanner"
 ---
 
 This first cybersecurity home lab consists of querying the state of connections to a target machine through TCP ports. It covers configuring the target machine so that it can be scanned by the attacker machine. Basic services such as web, SSH, and FTP will be exposed.
@@ -62,30 +62,6 @@ Likewise, we check connectivity with the target machine using the `ping` command
 Before enabling the firewall, `nc -zv` reports ports 21, 22 and 80 as **open**, while ports 53, 631, 8080 and 9999 return **connection refused**: nothing is listening on them from the network side.
 
 After enabling the firewall, port 21 is still **open** and port 8080 is still **refused**, now because of the *reject* rule. Port 9999, however, changes to **connection timed out**, because the firewall silently drops the packets.
-
-### Python Script
-
-```python
-from socket import socket, AF_INET, SOCK_STREAM
-
-print("TCP Port Scanner.\nEnter the target IP address and the ports you want to scan (comma-separated).")
-target_ip = input("Target IP: ").strip()
-ports = input("Ports: ")
-port_list = [int(port.strip()) for port in ports.split(",")]
-print(f"\nScanning {target_ip}...\n")
-
-for port in port_list:
-    with socket(AF_INET, SOCK_STREAM) as s:
-        s.settimeout(5)
-        try:
-            s.connect((target_ip, port))
-            state = "open"
-        except ConnectionRefusedError:
-            state = "refused"
-        except TimeoutError:
-            state = "timeout"
-    print(f"Port {port}: {state}")
-```
 
 ## Results
 
